@@ -88,7 +88,7 @@ execution:
     stop_command: jupyter lab stop 8888
     user_msg: ""
     logfile_path: ""
-    timeout_seconds: 0
+    timeout_seconds: 60
     icon_url: ""
     webapp_options:
       autolaunch: true
@@ -99,11 +99,13 @@ execution:
         grep -v 'Currently'
   resources:
     gpu:
-      requested: 1
+      requested: 6
     sharedMemoryMB: 4096
   secrets:
   - variable: NVCF_RUN_KEY
     description: NVCF Run Key for Cloud Inference
+  - variable: HUGGING_FACE_HUB_TOKEN
+    description: ""
   mounts:
   - type: project
     target: /project/
